@@ -1,0 +1,69 @@
+﻿<Page x:Class="Dluznicek.Pages.AddOutlayPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Dluznicek.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="1000"
+      Title="AddOutlayPage"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal" 
+      TextOptions.TextRenderingMode="Auto"        
+      Background="{DynamicResource MaterialDesignPaper}"
+      FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+
+        <materialDesign:Card Grid.Row="0" Grid.ColumnSpan="3" Padding="10" Margin="5">
+            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">Add Outlay</TextBlock>
+        </materialDesign:Card>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Margin="9" TextWrapping="Wrap" Text="Date" VerticalAlignment="Top" />
+        <DatePicker SelectedDate="{Binding SelectedDate}" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Grid.Row="1" Width="300" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" Margin="9" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" />
+        <TextBox  Text="{Binding SelectedName}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="23"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" Margin="9" TextWrapping="Wrap" Text="Price" VerticalAlignment="Top" />
+        <TextBox  Text="{Binding SelectedPrice}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="23"/>
+        <Button   Command="{Binding ClickCommand}" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" Content="Add Outlay" VerticalAlignment="Top" Margin="10,202,0,0" RenderTransformOrigin="0.529,5.5"/>
+
+        <TextBlock Grid.Row="5" HorizontalAlignment="Left" Margin="69,30,0,0" TextWrapping="Wrap" Text="Category" VerticalAlignment="Top" />
+        <ListView ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" SelectionMode="Single" HorizontalAlignment="Left" Height="300" Grid.Row="5" VerticalAlignment="Top" Width="300" Grid.Column="1" Margin="8,14,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding Name}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <TextBlock Grid.Row="1" HorizontalAlignment="Left" Margin="385,10,0,0" TextWrapping="Wrap" Text="Debt" VerticalAlignment="Top" Grid.Column="1" Width="40" />
+        <ListView ItemsSource="{Binding Debts}" SelectionMode="Single" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="415" Grid.Column="2" Margin="10,58,0,0" SelectedItem="{Binding SelectedDebt}" Grid.RowSpan="6">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Debtor" Width="85" DisplayMemberBinding="{Binding Debtor}"/>
+                    <GridViewColumn Header="Date" Width="80" DisplayMemberBinding="{Binding ReturnDate, StringFormat=dd-MM-yyyy}"/>
+                    <GridViewColumn Header="Interest rate" Width="120" DisplayMemberBinding="{Binding InterestRate}"/>
+                    <GridViewColumn Header="Interest" Width="100" DisplayMemberBinding="{Binding Interest}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Page>

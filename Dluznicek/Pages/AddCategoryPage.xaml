@@ -1,0 +1,41 @@
+﻿<Page x:Class="Dluznicek.Pages.AddCategoryPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Dluznicek.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="1000"
+      Title="AddCategoryPage"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal" 
+      TextOptions.TextRenderingMode="Auto"        
+      Background="{DynamicResource MaterialDesignPaper}"
+      FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+
+        <materialDesign:Card Grid.Row="0" Grid.ColumnSpan="2" Padding="10" Margin="5">
+            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">Add Category</TextBlock>
+        </materialDesign:Card>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Margin="9" TextWrapping="Wrap" Text="Category Name" VerticalAlignment="Top" />
+        <TextBox   Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="5" TextWrapping="Wrap" x:Name="Name" Text="" VerticalAlignment="Top" Width="500" Height="23"/>
+        <Button    Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Content="Add Category" VerticalAlignment="Top" Click="AddCategory_Click"/>
+
+    </Grid>
+</Page>

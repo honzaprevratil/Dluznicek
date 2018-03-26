@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dluznicek.Classes;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,19 @@ namespace Dluznicek
     /// </summary>
     public partial class App : Application
     {
+
+        private static DBcache _DBcache;
+
+        public static DBcache DBcache
+        {
+            get
+            {
+                if (_DBcache == null)
+                {
+                    _DBcache = new DBcache();
+                }
+                return _DBcache;
+            }
+        }
     }
 }
